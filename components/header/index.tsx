@@ -1,10 +1,10 @@
 "use client";
-import { Logo } from "@/assets/svg";
 import React, { useState } from "react";
-import { headerData } from "./data";
 import clsx from "clsx";
-import { Button } from "../shared/button";
+import { Logo } from "@/assets/svg";
+import { headerData } from "./data";
 import { Sidebar } from "./sidebar";
+import { Button } from "../shared/button";
 
 export const Header = () => {
   const [selectedHeader, setSelectedHeader] = useState<string>("home");
@@ -23,8 +23,8 @@ export const Header = () => {
               className={clsx(
                 "text-sm font-semibold uppercase",
                 selectedHeader === item.name.toLowerCase()
-                  ? "text-primary-purple cool-link-purple"
-                  : "text-theme-black cool-link",
+                  ? "cool-link-purple text-primary-purple"
+                  : "cool-link text-theme-black",
               )}
             >
               {item.name}
@@ -33,7 +33,7 @@ export const Header = () => {
         </div>
       </div>
       <div className="flex items-center gap-10">
-        <div className="text-primary-purple cool-link-purple cursor-pointer text-sm font-semibold uppercase">
+        <div className="cool-link-purple cursor-pointer text-sm font-semibold uppercase text-primary-purple">
           Sign In
         </div>
         <div className="flex items-center gap-3">

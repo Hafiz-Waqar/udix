@@ -1,55 +1,22 @@
 import React from "react";
-import { CardDataType } from "./card-data";
-import clsx from "clsx";
 import { FaArrowRight } from "react-icons/fa";
+import { CardDataType } from "./card-data";
 
 interface Props {
   item: CardDataType;
-  selectedCard: boolean;
-  setSelectedCard: (value: string) => void;
-  key: number;
 }
 
-export const CardSection: React.FC<Props> = ({
-  item,
-  selectedCard,
-  setSelectedCard,
-}) => {
+export const CardSection: React.FC<Props> = ({ item }) => {
   return (
-    <div
-      className={clsx(
-        "flex w-full max-w-full flex-col gap-5 p-4 transition-colors duration-[600ms] ease-in-out md:gap-10 md:p-[30px] lg:max-w-[310px]",
-        selectedCard
-          ? "bg-primary-purple"
-          : "border border-primary-purple bg-transparent",
-      )}
-    >
-      <item.icon
-        className={clsx(selectedCard ? "fill-white" : "fill-primary-purple")}
-      />
-      <h3
-        className={clsx(
-          "text-[22px] font-extrabold md:text-[24px]",
-          selectedCard ? "text-white" : "text-theme-black",
-        )}
-      >
+    <div className="group flex w-full max-w-full cursor-pointer flex-col gap-5 border border-primary-purple bg-transparent p-4 transition-colors duration-[600ms] ease-in-out hover:bg-primary-purple md:gap-10 md:p-[30px] lg:max-w-[310px]">
+      <item.icon className="fill-primary-purple group-hover:fill-white" />
+      <h3 className="text-[22px] font-extrabold text-theme-black group-hover:text-white md:text-[24px]">
         {item.name}
       </h3>
-      <p
-        className={clsx(
-          "text-[14px] md:text-[16px]",
-          selectedCard ? "text-white" : "text-theme-black/70",
-        )}
-      >
+      <p className="text-[14px] text-theme-black/70 group-hover:text-white md:text-[16px]">
         {item.description}
       </p>
-      <FaArrowRight
-        onClick={() => setSelectedCard(item.value)}
-        className={clsx(
-          "cursor-pointer",
-          selectedCard ? "text-white" : "text-primary-purple",
-        )}
-      />
+      <FaArrowRight className="cursor-pointer text-primary-purple group-hover:text-white" />
     </div>
   );
 };

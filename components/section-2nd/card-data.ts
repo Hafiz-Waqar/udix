@@ -1,5 +1,5 @@
-import { CrmIcon, MobileIcon, WebIcon } from "@/assets/svg";
 import { ElementType } from "react";
+import { CrmIcon, MobileIcon, WebIcon } from "@/assets/svg";
 
 export type CardDataType = {
   name: string;

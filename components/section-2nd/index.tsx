@@ -1,10 +1,8 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { CardSection } from "./card-section";
 import { cardData } from "./card-data";
 
 export const Section2nd = () => {
-  const [selectedCard, setSelectedCard] = useState<string>("web");
   return (
     <div className="mx-auto mt-[65px] flex w-full max-w-[1080px] flex-col items-center gap-5 p-4 sm:mt-20 sm:p-6 md:gap-10 lg:mt-[100px]">
       <h2 className="text-shadow text-center text-[28px] font-bold capitalize leading-normal tracking-tighter text-black md:text-[34px]">
@@ -18,12 +16,7 @@ export const Section2nd = () => {
       </p>
       <div className="grid w-full grid-cols-1 justify-between gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {cardData.map((item, index) => (
-          <CardSection
-            key={index}
-            item={item}
-            selectedCard={selectedCard === item.value}
-            setSelectedCard={setSelectedCard}
-          />
+          <CardSection key={index} item={item} />
         ))}
       </div>
     </div>

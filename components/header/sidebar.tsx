@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import clsx from "clsx";
 import { MdClose } from "react-icons/md";
 import { headerData } from "./data";
 import { Button } from "../shared/button";
@@ -39,7 +39,7 @@ export const Sidebar: React.FC<Props> = ({
             onClick={() => setSelectedHeader(item.name.toLowerCase())}
             href={item.href}
             className={clsx(
-              "border-theme-border border-b p-3 text-sm font-semibold uppercase text-white transition-colors duration-[600ms] ease-in-out first:border-t",
+              "border-b border-theme-border p-3 text-sm font-semibold uppercase text-white transition-colors duration-[600ms] ease-in-out first:border-t",
               selectedHeader === item.name.toLowerCase()
                 ? "bg-primary-purple"
                 : "bg-transparent",
@@ -49,7 +49,7 @@ export const Sidebar: React.FC<Props> = ({
           </a>
         ))}
       </div>
-      <div className="flex w-full items-center gap-3 sm:hidden">
+      <div className="flex w-full flex-col items-center gap-3 sm:hidden">
         <Button
           title="Sign In"
           variant="secondary"
