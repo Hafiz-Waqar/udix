@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .cool-link,
+  .cool-link-purple {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .cool-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #222222;
+    transition: width 0.3s;
+  }
+  .cool-link-purple::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #381ddb;
+    transition: width 0.3s;
+  }
+
+  .cool-link:hover::after,
+  .cool-link-purple:hover::after {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
