@@ -1,9 +1,40 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const Section4th = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    gsap.fromTo(
+      section,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  }, []);
+
   return (
-    <div className="mx-auto flex w-full max-w-[1080px] flex-col-reverse items-center gap-5 p-6 pb-20 sm:gap-8 md:gap-10 lg:flex-row lg:items-start lg:gap-14 lg:p-0">
+    <div
+      ref={sectionRef}
+      className="mx-auto flex w-full max-w-[1080px] flex-col-reverse items-center gap-5 p-6 pb-20 sm:gap-8 md:gap-10 lg:flex-row lg:items-start lg:gap-14 lg:p-0"
+    >
       <div className="flex w-full">
         <Image
           src="/images/image-1.png"
